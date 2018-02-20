@@ -149,7 +149,7 @@ SCAN_HANDLE start_unit_scan(const void * scan_list, ULONG * const blocksize)
   const char ** opt_list;
   struct dev_access_entry * dae_found;
   //printf("entered start_unit_scan\n");
-
+  if (!scan_list || !blocksize) return NULL;
   //floppy_like_an_hd.block_read = internal_floppy_block_read;
 
   /* This routine builds a list of scan handles from the env-vars passed in scan_list. */
