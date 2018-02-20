@@ -291,19 +291,19 @@ int do_boota(cmd_tbl_t * cmdtp, int flag, int argc, char *argv[])
 	env = getenv("boot1");
 	if(env) {
 		PRINTF("found: %s\n",env);
-		if(is_good_bootsource(env)) argarray[argcnt++]=env;
+		if(is_good_bootsource(env)) argarray[argcnt++]=strdup(env);
 	}
   
 	env = getenv("boot2");
 	if(env) {
 		PRINTF("found: %s\n",env);
-		if(is_good_bootsource(env)) argarray[argcnt++]=env;
+		if(is_good_bootsource(env)) argarray[argcnt++]=strdup(env);
 	}
 
 	env = getenv("boot3");
 	if(env) {
 		PRINTF("found: %s\n",env);
-		if(is_good_bootsource(env)) argarray[argcnt++]=env;
+		if(is_good_bootsource(env)) argarray[argcnt++]=strdup(env);
 	}
 
 	PRINTF("First-level bootloader: got %u valid boot sources\n", argcnt);
