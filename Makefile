@@ -136,8 +136,8 @@ unexport CDPATH
 # The "tools" are needed early, so put this first
 # Don't include stuff already done in $(LIBS)
 SUBDIRS	= tools \
-	  examples/standalone \
-	  examples/api
+#	  examples/standalone \
+#	  examples/api
 
 .PHONY : $(SUBDIRS)
 

@@ -65,7 +65,7 @@ extern int console_row; /* cursor row */
 extern u32 *fb_base_phys_sm502;
 extern unsigned char SM502INIT;
 extern pci_dev_t dev_sm502;
-extern struct FrameBufferInfo *fbi = NULL;
+extern struct FrameBufferInfo *fbi;
 
 unsigned char SM502 = 0;
 struct pci_controller *ppc460_hose = NULL;
