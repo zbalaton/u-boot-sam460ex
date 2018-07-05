@@ -32,7 +32,8 @@ endif
 
 X86EMU =  -I../bios_emulator/scitech/include -I../bios_emulator/scitech/src/x86emu
 
-PLATFORM_CPPFLAGS += -DCONFIG_440=1 $(X86EMU) -Dprintk=printf
+# -fgnu89-inline requires gcc 4.2 (it can be omitted in previous versions)
+PLATFORM_CPPFLAGS += -DCONFIG_440=1 $(X86EMU) -Dprintk=printf -fgnu89-inline
 
 
 ifeq ($(debug),1)
