@@ -1150,7 +1150,8 @@ static unsigned char local_atapi_issue(int device,unsigned char* ccb,int ccblen,
 
 	local_output_data_shorts (device, (unsigned short *)ccb,ccblen/2, cc); /* write command block */
  	/* ATAPI Command written wait for completition */
-	udelay (5000); /* device must set bsy */
+	/* Was 5000 in the original firmware, for QEMU we could get rid of it */
+	udelay (50); /* device must set bsy */
 
 	mask = ATA_STAT_DRQ|ATA_STAT_BUSY|ATA_STAT_ERR;
 	/* if no data wait for DRQ = 0 BSY = 0
@@ -1208,7 +1209,8 @@ static unsigned char local_atapi_issue(int device,unsigned char* ccb,int ccblen,
 			local_input_data_shorts(device,(unsigned short *)buffer,n, cc);
 		}
 	}
-	udelay(5000); /* seems that some CD ROMs need this... */
+	/* Was 5000 in the original firmware, for QEMU we could get rid of it */
+	udelay(50); /* seems that some CD ROMs need this... */
 	mask = ATA_STAT_BUSY|ATA_STAT_ERR;
 	res=0;
 	c = local_atapi_wait_mask(device,ATAPI_TIME_OUT,mask,res, cc);
