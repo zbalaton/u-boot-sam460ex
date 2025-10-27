@@ -118,7 +118,7 @@ int usb_init(void)
 	}
 
 #ifdef CONFIG_SAM460EX
-	static attempts = 0;
+	static int attempts = 0;
 
     if (dev_index < 3)
 	{
