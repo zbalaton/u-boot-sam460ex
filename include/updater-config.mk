@@ -1,1 +1,1 @@
-UPDATER_IMAGE = updater60-rx
+UPDATER_IMAGE = updater50-rx
